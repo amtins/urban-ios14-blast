@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://vjs.zencdn.net/7.4.1/video-js.css">
 </head>
+
 <body>
     <h1>VIDEO PLAYER</h1>
-    <video playsinline="playsinline" controls preload="auto" id="videoPlayer" tabindex="-1" class="vjs-tech" src="https://lsaplus.swisstxt.ch/audio/drs1_96.stream/playlist.m3u8?DVR"></video>
-    <button id="playVideo">Play</button>
-    <br>
-    <h1>AUDIO PLAYER</h1>
-    <audio playsinline="playsinline" controls preload="auto" id="audioPlayer" tabindex="-1" class="vjs-tech" src="https://lsaplus.swisstxt.ch/audio/drs1_96.stream/playlist.m3u8?DVR"></audio> 
-    <button id="playAudio">Play</button>
+    <video playsinline="playsinline" controls preload="auto" id="videoPlayer" tabindex="-1" class="vjs-tech"
+        src="https://lsaplus.swisstxt.ch/audio/drs1_96.stream/playlist.m3u8?DVR"></video>
+        <br>
+        <button id="playVideo">Play</button>
+        <br>
+        <h1>AUDIO PLAYER</h1>
+        <audio playsinline="playsinline" controls preload="auto" id="audioPlayer" tabindex="-1" class="vjs-tech"
+        src="https://lsaplus.swisstxt.ch/audio/drs1_96.stream/playlist.m3u8?DVR"></audio>
+        <br>
+        <button id="playAudio">Play</button>
+        <br>
+        <h1>AUDIO PLAYER VIDEOJS</h1>
+        <audio class="video-js" playsinline="playsinline" controls preload="auto" id="vjsAudioPlayer" tabindex="-1"
+        class="vjs-tech" src="https://lsaplus.swisstxt.ch/audio/drs1_96.stream/playlist.m3u8?DVR"></audio>
+
+    <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
     <script>
-       playVideo.addEventListener('click',()=>{
-        videoPlayer.play();
-       });
-       playAudio.addEventListener('click',()=>{
-        audioPlayer.play();
-       });
+        playVideo.addEventListener('click', () => {
+            videoPlayer.play();
+        });
+        playAudio.addEventListener('click', () => {
+            audioPlayer.play();
+        });
+
+        const player = new videojs('vjsAudioPlayer', {
+            liveui: true,
+        });
+        player.src({
+            src: 'https://lsaplus.swisstxt.ch/audio/drs1_96.stream/playlist.m3u8?DVR'
+        });
     </script>
 </body>
+
 </html>
